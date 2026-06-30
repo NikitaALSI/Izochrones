@@ -8,17 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2635779f-32fd-4c5a-9f07-13c66fd60637" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Development/test_lines.gpkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Development/test_lines2.gpkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Development/test_shapes.gpkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Development/try.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Izochrones.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Izochrones.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Development/Playground.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Development/Playground.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +30,65 @@
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000000000562248" />
+      <entry key="MS500" value="1.008912216530222" />
+      <entry key="S2" value="1.3072532125099372" />
+      <entry key="S5" value="1.623732785957023" />
+      <entry key="S10" value="1.7897675518511904" />
+      <entry key="S30" value="1.9243428697673461" />
+      <entry key="S60" value="1.9614275166476913" />
+      <entry key="M2" value="1.9805241423792932" />
+      <entry key="M5" value="1.9972490273809353" />
+      <entry key="M10" value="2.416492998982738" />
+      <entry key="M15" value="4.314593567231771" />
+      <entry key="M30" value="18.698310786665083" />
+      <entry key="H1" value="59.30112733219826" />
+      <entry key="H2" value="132.64521199785392" />
+      <entry key="H4" value="219.99500365931897" />
+      <entry key="D1" value="357.64131399116496" />
+      <entry key="W1" value="391.06545235180283" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="1.601455629690093E-193" />
+      <entry key="S10" value="5.599156816298261E-97" />
+      <entry key="S30" value="1.3053348317825279E-32" />
+      <entry key="S60" value="1.627257024993461E-16" />
+      <entry key="M2" value="1.9071968995857172E-8" />
+      <entry key="M5" value="0.0014932521005461244" />
+      <entry key="M10" value="0.07759267050669033" />
+      <entry key="M15" value="0.35816397565466107" />
+      <entry key="M30" value="2.464858493887101" />
+      <entry key="H1" value="9.507615324797444" />
+      <entry key="H2" value="24.609875816710687" />
+      <entry key="H4" value="44.220946473485554" />
+      <entry key="D1" value="76.5681395508594" />
+      <entry key="W1" value="84.57399632712517" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.926588061940346" />
+      <entry key="MS500" value="0.9935710807925766" />
+      <entry key="S2" value="1.3016432235514293" />
+      <entry key="S5" value="1.6207408037080153" />
+      <entry key="S10" value="1.7880753058790786" />
+      <entry key="S30" value="1.9237257528521492" />
+      <entry key="S60" value="1.9611116498927632" />
+      <entry key="M2" value="1.980364345983585" />
+      <entry key="M5" value="1.9986624029482765" />
+      <entry key="M10" value="2.4934418700472194" />
+      <entry key="M15" value="4.670463797083279" />
+      <entry key="M30" value="21.15462860135552" />
+      <entry key="H1" value="68.79363082820326" />
+      <entry key="H2" value="157.23753647142732" />
+      <entry key="H4" value="264.20115998386467" />
+      <entry key="D1" value="434.20539784343424" />
+      <entry key="W1" value="475.6388139199452" />
+    </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -77,6 +126,7 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "copilot.chat.legacySessionMetadata.migrated": "true",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -101,7 +151,8 @@
       <option name="presentableId" value="Default" />
       <updated>1782814105688</updated>
       <workItem from="1782814107564" duration="4517000" />
-      <workItem from="1782818658680" duration="1144000" />
+      <workItem from="1782818658680" duration="24051000" />
+      <workItem from="1782847732995" duration="1523000" />
     </task>
     <servers />
   </component>
