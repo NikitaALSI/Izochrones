@@ -21,10 +21,10 @@ def get_centroids(gdf):
     return gdf
 
 
-def preprocess_route(gdf_polylines):
-    gdf_polylines = validate_crs(gdf_polylines)
+def preprocess_route(gdf):
+    gdf = validate_crs(gdf)
 
-    segmented_lines = unary_union(gdf_polylines.geometry)
+    segmented_lines = unary_union(gdf.geometry)
     segmented_lines = shapely.get_parts(segmented_lines)
     segments = []
     for line in segmented_lines:
@@ -32,34 +32,33 @@ def preprocess_route(gdf_polylines):
         for i in range(len(coords) - 1):
             segments.append(shapely.geometry.LineString([coords[i], coords[i + 1]]))
 
-    return gpd.GeoDataFrame(geometry=segments, crs=gdf_polylines.crs)
+    return gpd.GeoDataFrame(geometry=segments, crs=gdf.crs)
 
 
-def extend_route_to_centroids(gdf_polylines, gdf):
-    gdf_polylines = validate_crs(gdf_polylines.to_crs(gdf.crs))
+def extend_route_to_centroids(route, gdf):
+    route = validate_crs(route.to_crs(gdf.crs))
     gdf = get_centroids(validate_crs(gdf))
 
-    gdf_snapped = gpd.sjoin_nearest(gdf, gdf_polylines, how='left')[['shape_centroid', 'index_right']]
-    gdf_snapped = gdf_snapped.drop_duplicates(subset='shape_centroid')
-    gdf_snapped = gdf_snapped.merge(gdf_polylines[['geometry']], left_on='index_right', right_index=True)
-    gdf_snapped['start_line'] = gdf_snapped['geometry'].interpolate(
-        gdf_snapped['geometry'].project(gdf_snapped['shape_centroid']))
+    joined = gpd.sjoin_nearest(gdf, route, how='left')[['shape_centroid', 'index_right']]
+    joined = joined.drop_duplicates(subset='shape_centroid')
+    joined = joined.merge(route[['geometry']], left_on='index_right', right_index=True)
+    joined['start_line'] = joined['geometry'].interpolate(joined['geometry'].project(joined['shape_centroid']))
 
     new_rows = []
-    for row in gdf_snapped.iloc:
+    for row in joined.iloc:
         new_rows.append({'geometry': LineString([row['start_line'], row['shape_centroid']])})
-    new_gdf = gpd.GeoDataFrame(new_rows, crs=gdf_polylines.crs)
-    return pd.concat([gdf_polylines, new_gdf], ignore_index=True)
+    new_gdf = gpd.GeoDataFrame(new_rows, crs=route.crs)
+    return pd.concat([route, new_gdf], ignore_index=True)
 
 
-def create_isochrones(network, starting_point, distance):
-    if isinstance(network, gpd.GeoDataFrame):
-        network = momepy.gdf_to_nx(network, approach='primal', length='length', directed=True)
-        nearest_node = min(network.nodes, key=lambda node: starting_point.distance(shapely.geometry.Point(node)))
+def create_isochrones(route, start, distance):
+    if isinstance(route, gpd.GeoDataFrame):
+        route = momepy.gdf_to_nx(route, approach='primal', length='length', directed=True)
+        nearest_node = min(route.nodes, key=lambda node: start.distance(shapely.geometry.Point(node)))
     else:
-        nearest_node = ox.nearest_nodes(G=network, X=[starting_point.x], Y=[starting_point.y])[0]
+        nearest_node = ox.nearest_nodes(G=route, X=[start.x], Y=[start.y])[0]
 
-    isochrone = nx.ego_graph(network, nearest_node, radius=distance, distance='length', undirected=True)
+    isochrone = nx.ego_graph(route, nearest_node, radius=distance, distance='length', undirected=True)
     isochrone = ox.graph_to_gdfs(isochrone, nodes=False, edges=True)
     isochrone = validate_crs(isochrone)
     return isochrone
