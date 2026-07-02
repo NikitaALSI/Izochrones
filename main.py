@@ -79,20 +79,15 @@ def create_isochrones(graph, starting_point, distance, spatial_index, node_ids):
     return isochrone
 
 
-def isochrone_target_intersection(isochrone, *targets):
-    crs = validate_crs(isochrone)
-
+def isochrone_target_intersection(isochrone, start):
+    isochrone = isochrone.to_crs(validate_crs(start))
     isochrone_buffered = isochrone.buffer(10).union_all()
+    start.loc[start.geometry.centroid.within(isochrone_buffered)]['accessibility'] += 1
+    print(f"Isochrone bounds: {isochrone_buffered.bounds}")
+    print(f"Start centroids sample: {start.geometry.centroid.iloc[0]}")
+    # print(f"Points within isochrone: {mask.sum()}")
 
-    count = 0
-    for target in targets:
-        target = target.to_crs(crs)
-        _ = target.sindex
-        joined = target[target.geometry.centroid.within(isochrone_buffered)]
-        if joined.shape[0] != 0:
-            count += 1
-
-    return count
+    return start
 
 
 def accessibility_analysis(start, route, distance, *targets):
@@ -106,14 +101,32 @@ def accessibility_analysis(start, route, distance, *targets):
         target = target.to_crs(crs)
         route = extend_route_to_centroids(route, target)
     route = preprocess_route(route)
-    start = get_centroids(start)
     start = start.to_crs(crs)
+    start = get_centroids(start)
+    start['accessibility'] = 0
 
     route = momepy.gdf_to_nx(route, approach='primal', length='length', directed=True)
-
+    print('Preprocessing route finished!')
     node_ids = list(route.nodes)
     node_coords = [node for node in node_ids]
     spatial_index = KDTree(node_coords)
-    start['accessibility'] = start.apply(lambda row: isochrone_target_intersection(
-        create_isochrones(route, row['shape_centroid'], distance, spatial_index, node_ids), *targets), axis=1)
+
+    for i, target in enumerate(targets):
+        target_isochrones = []
+        for j, start_point in enumerate(target.centroid):
+            target_isochrones.append(create_isochrones(route, start_point, distance, spatial_index, node_ids))
+            print(f'Target {i + 1} isochrone {j+1}|{len(target)} created!')
+        target_isochrone = gpd.GeoDataFrame(pd.concat(target_isochrones, ignore_index=True), crs=crs)
+        start = isochrone_target_intersection(target_isochrone, start)
+        print(f'Target {i + 1} finished!')
+    print('All targets finished!')
     return start
+
+
+if __name__ == '__main__':
+    route_osm_graph = ox.graph_from_address('Sofia, Bulgaria', dist=1000, network_type='walk')
+    points = ox.features_from_address('Sofia, Bulgaria', tags={'building': True}, dist=1000)
+    route_osm = ox.graph_to_gdfs(route_osm_graph, nodes=False, edges=True).to_crs(validate_crs(points))
+
+    start = accessibility_analysis(points[points['building'].isin(['apartments'])], route_osm, 800, points[points['building'].isin(['school', 'university', 'kindergarten'])])
+    print(start['accessibility'].sum())

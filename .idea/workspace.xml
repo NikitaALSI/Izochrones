@@ -8,11 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2635779f-32fd-4c5a-9f07-13c66fd60637" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Generated_Maps/london.geojson" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Development/Playground.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Development/Playground.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accessibility_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/accessibility_app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/osm_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/osm_api.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,61 +42,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000191008981119" />
-      <entry key="S2" value="1.0661094352261526" />
-      <entry key="S5" value="1.3373702212076362" />
-      <entry key="S10" value="1.582269742487842" />
-      <entry key="S30" value="2.2014244855608727" />
-      <entry key="S60" value="3.773865830995687" />
-      <entry key="M2" value="6.382441908937516" />
-      <entry key="M5" value="9.583261658203304" />
-      <entry key="M10" value="11.229700686948766" />
-      <entry key="M15" value="12.677447390907036" />
-      <entry key="M30" value="22.57494849292851" />
-      <entry key="H1" value="50.646057735967595" />
-      <entry key="H2" value="112.47953040526727" />
-      <entry key="H4" value="260.8260552271682" />
-      <entry key="D1" value="1282.709758861685" />
-      <entry key="W1" value="1991.5600339800217" />
+      <entry key="MS100" value="1.0137922343170416" />
+      <entry key="MS500" value="1.4245481233904063" />
+      <entry key="S2" value="1.8129426822823544" />
+      <entry key="S5" value="2.109417600025205" />
+      <entry key="S10" value="2.5765005433839843" />
+      <entry key="S30" value="3.3563402450608226" />
+      <entry key="S60" value="3.7747316510324556" />
+      <entry key="M2" value="4.2437189049723845" />
+      <entry key="M5" value="5.368221480339286" />
+      <entry key="M10" value="7.824673372689606" />
+      <entry key="M15" value="11.212593451057595" />
+      <entry key="M30" value="23.807448809458286" />
+      <entry key="H1" value="51.7817143218274" />
+      <entry key="H2" value="111.81387844728042" />
+      <entry key="H4" value="253.78802661854434" />
+      <entry key="D1" value="1287.2507637751717" />
+      <entry key="W1" value="2036.0605458643017" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="2.375268224908001E-110" />
-      <entry key="S2" value="3.9257999464272956E-28" />
-      <entry key="S5" value="1.0903634017646889E-11" />
-      <entry key="S10" value="3.3020651140834408E-6" />
-      <entry key="S30" value="0.014891160491350414" />
-      <entry key="S60" value="0.1220293427473508" />
-      <entry key="M2" value="0.3493269854427807" />
-      <entry key="M5" value="0.656716233075508" />
-      <entry key="M10" value="0.8531019202020945" />
-      <entry key="M15" value="1.2136113383812024" />
-      <entry key="M30" value="4.051186578773866" />
-      <entry key="H1" value="12.026553297785934" />
-      <entry key="H2" value="31.34593376005669" />
-      <entry key="H4" value="80.76735726218041" />
-      <entry key="D1" value="373.067260540199" />
-      <entry key="W1" value="556.5345228779995" />
+      <entry key="MS100" value="4.9250732898229664E-26" />
+      <entry key="MS500" value="9.55073668785995E-6" />
+      <entry key="S2" value="0.08483146467658143" />
+      <entry key="S5" value="0.5595373280562327" />
+      <entry key="S10" value="1.0561259613031404" />
+      <entry key="S30" value="1.6453258148767325" />
+      <entry key="S60" value="2.1857987030492323" />
+      <entry key="M2" value="3.3546818765683004" />
+      <entry key="M5" value="5.396621548989218" />
+      <entry key="M10" value="7.459796012517264" />
+      <entry key="M15" value="9.718182809787583" />
+      <entry key="M30" value="16.907287051877457" />
+      <entry key="H1" value="29.146138849019966" />
+      <entry key="H2" value="50.74314146606156" />
+      <entry key="H4" value="99.31455706163815" />
+      <entry key="D1" value="398.54863752957596" />
+      <entry key="W1" value="594.2388796734152" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="3.11588173128416E-5" />
-      <entry key="MS500" value="0.12552588652732893" />
-      <entry key="S2" value="0.6423753172953782" />
-      <entry key="S5" value="1.1073077138887581" />
-      <entry key="S10" value="1.4455932139957262" />
-      <entry key="S30" value="2.144349787544728" />
-      <entry key="S60" value="3.8183373880140197" />
-      <entry key="M2" value="6.659171487184606" />
-      <entry key="M5" value="10.194978120348342" />
-      <entry key="M10" value="12.05640292824768" />
-      <entry key="M15" value="13.871713615931899" />
-      <entry key="M30" value="26.611839965623457" />
-      <entry key="H1" value="62.659184869263704" />
-      <entry key="H2" value="143.81110000414856" />
-      <entry key="H4" value="341.5755304772402" />
-      <entry key="D1" value="1655.7613629190353" />
-      <entry key="W1" value="2548.091086524834" />
+      <entry key="MS100" value="0.014988502715529107" />
+      <entry key="MS500" value="0.44701892234985074" />
+      <entry key="S2" value="1.2327711913734196" />
+      <entry key="S5" value="2.2549642899299154" />
+      <entry key="S10" value="3.3586718008456913" />
+      <entry key="S30" value="4.879270127574834" />
+      <entry key="S60" value="5.88243159616101" />
+      <entry key="M2" value="7.54243195269225" />
+      <entry key="M5" value="10.729011009253712" />
+      <entry key="M10" value="15.25806438460356" />
+      <entry key="M15" value="20.90717236568486" />
+      <entry key="M30" value="40.69355881736255" />
+      <entry key="H1" value="80.90879906288457" />
+      <entry key="H2" value="162.5394083498305" />
+      <entry key="H4" value="353.0835843400789" />
+      <entry key="D1" value="1685.7834441892644" />
+      <entry key="W1" value="2630.2958421368144" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -127,6 +126,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.main.executor": "Run",
     "Python.osm_api.executor": "Run",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -174,7 +174,7 @@
       <workItem from="1782886614161" duration="37353000" />
       <workItem from="1782935862241" duration="8157000" />
       <workItem from="1782976034488" duration="2521000" />
-      <workItem from="1782978566802" duration="35820000" />
+      <workItem from="1782978566802" duration="40814000" />
     </task>
     <servers />
   </component>
@@ -183,5 +183,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Izochrones$osm_api.coverage" NAME="osm_api Coverage Results" MODIFIED="1783015956448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Izochrones$main.coverage" NAME="main Coverage Results" MODIFIED="1783027756727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

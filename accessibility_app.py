@@ -40,7 +40,7 @@ def create_map(data):
         }
 
     m = folium.Map(tiles="CartoDB.Positron",
-                   zoom_start=15)
+                   zoom_start=17)
 
     ch = folium.GeoJson(data,
                         style_function=style_function,
@@ -53,7 +53,7 @@ def create_map(data):
     colormap = colormap.to_step(index=bins)
     colormap.add_to(m)
 
-    with m_col2:
+    with m_col3:
         st.space("small")
         folium_static(m, width=1040, height=820)
     st.download_button("Download Map", data=data.to_json(), file_name=f"accessibility_map.geojson")
@@ -62,7 +62,7 @@ def create_map(data):
 st.set_page_config(layout="wide",
                    page_title="Accessibility Analysis", )
 
-m_col1, m_col2 = st.columns([2, 3])
+m_col1, m_col2, m_col3 = st.columns([20, 2, 30])
 
 sb = st.sidebar
 with sb:
@@ -148,17 +148,17 @@ with m_col1:
 
     minutes = st.slider("Select walking distance in minutes for analysis", min_value=5, max_value=30, value=10)
 
-with m_col2:
+
     if "generate_map" not in st.session_state:
         st.session_state.generate_map = False
 
-    if st.button("**Generate map**",
+        if st.button("**Generate map**",
                  type="primary",
                  width="stretch",
                  disabled=not all([bool(route or route_address),
                                    bool(start or start_address),
                                    bool(targets or targets_choice)])):
-        st.session_state.generate_map = True
+            st.session_state.generate_map = True
 
     if st.session_state.generate_map:
         with st.spinner():
