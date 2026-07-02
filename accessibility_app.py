@@ -152,13 +152,13 @@ with m_col1:
     if "generate_map" not in st.session_state:
         st.session_state.generate_map = False
 
-        if st.button("**Generate map**",
-                 type="primary",
-                 width="stretch",
-                 disabled=not all([bool(route or route_address),
-                                   bool(start or start_address),
-                                   bool(targets or targets_choice)])):
-            st.session_state.generate_map = True
+    if st.button("**Generate map**",
+             type="primary",
+             width="stretch",
+             disabled=not all([bool(route or route_address),
+                               bool(start or start_address),
+                               bool(targets or targets_choice)])):
+        st.session_state.generate_map = True
 
     if st.session_state.generate_map:
         with st.spinner():

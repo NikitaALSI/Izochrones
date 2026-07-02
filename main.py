@@ -81,11 +81,9 @@ def create_isochrones(graph, starting_point, distance, spatial_index, node_ids):
 
 def isochrone_target_intersection(isochrone, start):
     isochrone = isochrone.to_crs(validate_crs(start))
-    isochrone_buffered = isochrone.buffer(10).union_all()
-    start.loc[start.geometry.centroid.within(isochrone_buffered)]['accessibility'] += 1
-    print(f"Isochrone bounds: {isochrone_buffered.bounds}")
-    print(f"Start centroids sample: {start.geometry.centroid.iloc[0]}")
-    # print(f"Points within isochrone: {mask.sum()}")
+    isochrone_buffered = isochrone.geometry.buffer(10).union_all()
+    mask = start.geometry.centroid.within(isochrone_buffered)
+    start.loc[mask, 'accessibility'] += 1
 
     return start
 

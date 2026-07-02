@@ -40,6 +40,9 @@ TAGS = {
 
 
 def osm_api(address, request, radius, *targets):
+    ox.settings.timeout = 300
+    ox.settings.use_cache = True
+    ox.settings.overpass_endpoint = "https://overpass.kumi.systems/api/interpreter"
     if request == 'route':
         graph = ox.graph_from_address(address, dist=radius, network_type='walk')
         return ox.graph_to_gdfs(graph, nodes=False, edges=True)
