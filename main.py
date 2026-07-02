@@ -89,7 +89,6 @@ def isochrone_target_intersection(isochrone, *targets):
         target = target.to_crs(crs)
         _ = target.sindex
         joined = target[target.geometry.centroid.within(isochrone_buffered)]
-        print(joined.shape)
         if joined.shape[0] != 0:
             count += 1
 

@@ -8,11 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2635779f-32fd-4c5a-9f07-13c66fd60637" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/osm_api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generated_Maps/london.geojson" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Development/Playground.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Development/Playground.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accessibility_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/accessibility_app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osm_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/osm_api.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,60 +44,60 @@
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000372031494" />
-      <entry key="S2" value="1.0138931155386839" />
-      <entry key="S5" value="1.1948561721294952" />
-      <entry key="S10" value="1.6295872178262927" />
-      <entry key="S30" value="3.02319365254818" />
-      <entry key="S60" value="4.193950177553345" />
-      <entry key="M2" value="5.911208347037022" />
-      <entry key="M5" value="9.172562273064191" />
-      <entry key="M10" value="11.458210081622981" />
-      <entry key="M15" value="12.53238527923051" />
-      <entry key="M30" value="15.434180145810242" />
-      <entry key="H1" value="29.57854792695029" />
-      <entry key="H2" value="88.3800067886161" />
-      <entry key="H4" value="245.68009714317333" />
-      <entry key="D1" value="1243.0044761836996" />
-      <entry key="W1" value="1889.8286468681458" />
+      <entry key="MS500" value="1.0000191008981119" />
+      <entry key="S2" value="1.0661094352261526" />
+      <entry key="S5" value="1.3373702212076362" />
+      <entry key="S10" value="1.582269742487842" />
+      <entry key="S30" value="2.2014244855608727" />
+      <entry key="S60" value="3.773865830995687" />
+      <entry key="M2" value="6.382441908937516" />
+      <entry key="M5" value="9.583261658203304" />
+      <entry key="M10" value="11.229700686948766" />
+      <entry key="M15" value="12.677447390907036" />
+      <entry key="M30" value="22.57494849292851" />
+      <entry key="H1" value="50.646057735967595" />
+      <entry key="H2" value="112.47953040526727" />
+      <entry key="H4" value="260.8260552271682" />
+      <entry key="D1" value="1282.709758861685" />
+      <entry key="W1" value="1991.5600339800217" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="5.479999214136693E-81" />
-      <entry key="S2" value="8.639408415864837E-21" />
-      <entry key="S5" value="1.0463753394756432E-8" />
-      <entry key="S10" value="1.2940250560786304E-4" />
-      <entry key="S30" value="0.07782988928363266" />
-      <entry key="S60" value="0.39582655663842564" />
-      <entry key="M2" value="0.9397616656335137" />
-      <entry key="M5" value="1.7551198121238378" />
-      <entry key="M10" value="2.258771039832281" />
-      <entry key="M15" value="2.5034292246809975" />
-      <entry key="M30" value="3.5553400675064757" />
-      <entry key="H1" value="9.194704488180108" />
-      <entry key="H2" value="30.439918252995213" />
-      <entry key="H4" value="84.91896512146441" />
-      <entry key="D1" value="367.23214215730053" />
-      <entry key="W1" value="532.3713226026564" />
+      <entry key="MS500" value="2.375268224908001E-110" />
+      <entry key="S2" value="3.9257999464272956E-28" />
+      <entry key="S5" value="1.0903634017646889E-11" />
+      <entry key="S10" value="3.3020651140834408E-6" />
+      <entry key="S30" value="0.014891160491350414" />
+      <entry key="S60" value="0.1220293427473508" />
+      <entry key="M2" value="0.3493269854427807" />
+      <entry key="M5" value="0.656716233075508" />
+      <entry key="M10" value="0.8531019202020945" />
+      <entry key="M15" value="1.2136113383812024" />
+      <entry key="M30" value="4.051186578773866" />
+      <entry key="H1" value="12.026553297785934" />
+      <entry key="H2" value="31.34593376005669" />
+      <entry key="H4" value="80.76735726218041" />
+      <entry key="D1" value="373.067260540199" />
+      <entry key="W1" value="556.5345228779995" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9201876506248751" />
-      <entry key="MS500" value="0.983502081016541" />
-      <entry key="S2" value="1.004997991347951" />
-      <entry key="S5" value="1.1647130964959465" />
-      <entry key="S10" value="1.5895611629285986" />
-      <entry key="S30" value="3.0639812240803455" />
-      <entry key="S60" value="4.554091041426326" />
-      <entry key="M2" value="6.817483727598485" />
-      <entry key="M5" value="10.901873622759746" />
-      <entry key="M10" value="13.699593523051753" />
-      <entry key="M15" value="15.022821245402957" />
-      <entry key="M30" value="18.98134814748757" />
-      <entry key="H1" value="38.76535973373307" />
-      <entry key="H2" value="118.80769434250445" />
-      <entry key="H4" value="330.5808778616685" />
-      <entry key="D1" value="1610.221113098032" />
-      <entry key="W1" value="2422.1966288023036" />
+      <entry key="MS100" value="3.11588173128416E-5" />
+      <entry key="MS500" value="0.12552588652732893" />
+      <entry key="S2" value="0.6423753172953782" />
+      <entry key="S5" value="1.1073077138887581" />
+      <entry key="S10" value="1.4455932139957262" />
+      <entry key="S30" value="2.144349787544728" />
+      <entry key="S60" value="3.8183373880140197" />
+      <entry key="M2" value="6.659171487184606" />
+      <entry key="M5" value="10.194978120348342" />
+      <entry key="M10" value="12.05640292824768" />
+      <entry key="M15" value="13.871713615931899" />
+      <entry key="M30" value="26.611839965623457" />
+      <entry key="H1" value="62.659184869263704" />
+      <entry key="H2" value="143.81110000414856" />
+      <entry key="H4" value="341.5755304772402" />
+      <entry key="D1" value="1655.7613629190353" />
+      <entry key="W1" value="2548.091086524834" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -124,31 +124,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nikit/Documents/GitHub/Py_FMI/Izochrones&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.osm_api.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/nikit/Documents/GitHub/Py_FMI/Izochrones/Generated_Maps",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nikit\Documents\GitHub\Py_FMI\Izochrones\Generated_Maps" />
       <recent name="C:\Users\nikit\Documents\GitHub\Py_FMI\Izochrones" />
     </key>
   </component>
@@ -172,11 +174,14 @@
       <workItem from="1782886614161" duration="37353000" />
       <workItem from="1782935862241" duration="8157000" />
       <workItem from="1782976034488" duration="2521000" />
-      <workItem from="1782978566802" duration="30801000" />
+      <workItem from="1782978566802" duration="35820000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Izochrones$osm_api.coverage" NAME="osm_api Coverage Results" MODIFIED="1783015956448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

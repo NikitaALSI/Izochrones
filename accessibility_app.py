@@ -1,13 +1,13 @@
 import streamlit as st
 import folium
-from streamlit_folium import st_folium
+from streamlit_folium import folium_static
 import geopandas as gpd
 import matplotlib as mlp
 import matplotlib.colors as mcolors
 import branca
 
 from main import accessibility_analysis
-from osm_api import osm_api
+from osm_api import osm_api, TAGS
 
 
 def generate_data():
@@ -16,14 +16,14 @@ def generate_data():
     _targets = [gpd.read_file(_target) for _target in targets] + osm_api(route_address, 'targets', route_address_radius,
                                                                          *targets_choice)
     return accessibility_analysis(_start,
-                                   _route,
-                                   minutes * 80,
-                                   *_targets)  # gpd.read_file("Generated_Maps/sofia.geojson")
+                                  _route,
+                                  minutes * 80,
+                                  *_targets)  # gpd.read_file("Generated_Maps/sofia.geojson")
 
 
 def create_map(data):
     data = data[['geometry', "accessibility"]]
-    bins = [0, 1, 2, 3, 4]
+    bins = list(range(max(4, data.accessibility.max() + 1)))
     n = len(bins)
 
     cmap = mlp.colormaps['YlOrRd'].resampled(n)
@@ -33,7 +33,7 @@ def create_map(data):
     def style_function(feature):
         value = feature['properties']['accessibility']
         return {
-            'fillColor': value_to_color.get(value, '#999999'),
+            'fillColor': value_to_color.get(value, '#EEEEEE'),
             'color': 'white',
             'weight': 0.3,
             'fillOpacity': 0.75,
@@ -49,14 +49,14 @@ def create_map(data):
     bounds = ch.get_bounds()
     m.fit_bounds(bounds)
 
-    colormap = branca.colormap.linear.YlOrRd_09.scale(0, 4)
-    colormap = colormap.to_step(index=[0, 1, 2, 3, 4])
+    colormap = branca.colormap.linear.YlOrRd_09.scale(0, n)
+    colormap = colormap.to_step(index=bins)
     colormap.add_to(m)
 
     with m_col2:
         st.space("small")
-        st_folium(m, width=1040, height=820)
-    st.download_button("Download Map", data=data.to_json(), file_name=f"accessibility_map_{minutes}.geojson")
+        folium_static(m, width=1040, height=820)
+    st.download_button("Download Map", data=data.to_json(), file_name=f"accessibility_map.geojson")
 
 
 st.set_page_config(layout="wide",
@@ -79,6 +79,32 @@ with sb:
          * public transport schema
          * *and may more*
          """)
+
+    st.header("Pre-loved maps", divider='rainbow')
+    st.markdown(
+        """
+        1. **Sofia, Bulgaria** 
+        
+        `15 min / All`
+        
+        2. **London, England** 
+        
+        `10 min / Schools`
+        
+        3. **Sofia, Bulgaria** 
+        
+        `10 min / Malls, Shops, Restaurants`
+        """)
+    pre_loved_maps = {
+        "1": gpd.read_file("Generated_Maps/sofia.geojson"),
+        "2": gpd.read_file("Generated_Maps/london.geojson"),
+        # "3": gpd.read_file("Generated_Maps/sofia_malls_shops_restaurants.geojson")
+    }
+    pre_loved_map_choice = st.selectbox(label="Choose Pre-loved map",
+                                          options=["None", "1", "2", "3"])
+    load_btn = st.button("Load Pre-loved map", disabled=pre_loved_map_choice == "None")
+    if load_btn:
+        create_map(pre_loved_maps[pre_loved_map_choice])
 
 with m_col1:
     st.header("The network", divider='yellow')
@@ -117,11 +143,10 @@ with m_col1:
         targets = st.file_uploader("Upload target", type=["gpkg", "geojson", "shp"], accept_multiple_files=True)
     with col2:
         targets_choice = st.multiselect(label="Select targets to use as targets",
-                                        options=["shop", "amenity", "leisure", "public_transport"])
+                                        options=TAGS.keys())
         st.write("*\\*the amenities will be the collected for the boundaries of the network*")
 
-    minutes = st.select_slider("Select walking distance in minutes for analysis", options=[5, 10, 15], value=10,
-                               format_func=lambda x: f"{x} min")
+    minutes = st.slider("Select walking distance in minutes for analysis", min_value=5, max_value=30, value=10)
 
 with m_col2:
     if "generate_map" not in st.session_state:
@@ -137,5 +162,5 @@ with m_col2:
 
     if st.session_state.generate_map:
         with st.spinner():
-
-            create_map()
+            data = generate_data()
+            create_map(data)
