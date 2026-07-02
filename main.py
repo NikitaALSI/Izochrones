@@ -1,4 +1,3 @@
-
 import geopandas as gpd
 import pandas as pd
 import shapely
@@ -7,36 +6,41 @@ from shapely.ops import unary_union, split
 import networkx as nx
 import osmnx as ox
 import momepy
-import matplotlib.pyplot as plt
-import contextily as cx
 from scipy.spatial import KDTree
 
 
 def validate_crs(gdf):
-    if gdf.crs.is_geographic:
-        gdf = gdf.to_crs(epsg=4326)
-        gdf = gdf.to_crs(gdf.estimate_utm_crs())
     if not gdf.crs:
         gdf = gdf.set_crs(epsg=4326)
         gdf = gdf.to_crs(gdf.estimate_utm_crs())
+    else:
+        if gdf.crs.is_geographic:
+            gdf = gdf.to_crs(epsg=4326)
+            gdf = gdf.to_crs(gdf.estimate_utm_crs())
+
     return gdf.crs
 
 
 def get_centroids(gdf):
     crs = validate_crs(gdf)
+
     gdf = gdf.to_crs(crs)
+
     gdf['shape_centroid'] = gdf.geometry.centroid
+
     return gdf
 
 
 def preprocess_route(route):
     crs = validate_crs(route)
+
     route = route.to_crs(crs)
 
-    segmented_lines = unary_union(route.geometry)
-    segmented_lines = shapely.get_parts(segmented_lines)
+    segmented = unary_union(route.geometry)
+    segmented = shapely.get_parts(segmented)
+
     segments = []
-    for line in segmented_lines:
+    for line in segmented:
         coords = list(line.coords)
         for i in range(len(coords) - 1):
             segments.append(shapely.geometry.LineString([coords[i], coords[i + 1]]))
@@ -46,17 +50,22 @@ def preprocess_route(route):
 
 def extend_route_to_centroids(route, objects):
     crs = validate_crs(route)
+
     route = route.to_crs(crs)
     objects = objects.to_crs(crs)
 
     _ = route.sindex
     _ = objects.sindex
 
-    gdf_snapped = gpd.sjoin_nearest(get_centroids(objects), route, how='left')[['shape_centroid', 'index_right']].drop_duplicates(subset='shape_centroid')
-    gdf_snapped = gdf_snapped.merge(route[['geometry']], left_on='index_right', right_index=True)
-    gdf_snapped['start_line'] = gdf_snapped['geometry'].interpolate(gdf_snapped['geometry'].project(gdf_snapped['shape_centroid']))
-    new_geometries = [LineString([pt1, pt2]) for pt1, pt2 in zip(gdf_snapped['start_line'], gdf_snapped['shape_centroid'])]
+    snapped = gpd.sjoin_nearest(get_centroids(objects),
+                                    route,
+                                    how='left')[['shape_centroid', 'index_right']].drop_duplicates(subset='shape_centroid')
+    snapped = snapped.merge(route[['geometry']], left_on='index_right', right_index=True)
+    snapped['start_line'] = snapped['geometry'].interpolate(snapped['geometry'].project(snapped['shape_centroid']))
+
+    new_geometries = [LineString([pt1, pt2]) for pt1, pt2 in zip(snapped['start_line'], snapped['shape_centroid'])]
     new_gdf = gpd.GeoDataFrame(geometry=new_geometries, crs=crs)
+
     return pd.concat([route, new_gdf], ignore_index=True)
 
 
@@ -106,5 +115,6 @@ def accessibility_analysis(start, route, distance, *targets):
     node_ids = list(route.nodes)
     node_coords = [node for node in node_ids]
     spatial_index = KDTree(node_coords)
-    start['accessibility'] = start.apply(lambda row: isochrone_target_intersection(create_isochrones(route, row['shape_centroid'], distance, spatial_index, node_ids), *targets), axis=1)
+    start['accessibility'] = start.apply(lambda row: isochrone_target_intersection(
+        create_isochrones(route, row['shape_centroid'], distance, spatial_index, node_ids), *targets), axis=1)
     return start
